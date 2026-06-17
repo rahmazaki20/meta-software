@@ -58,21 +58,31 @@ function App() {
     return <h2>{error}</h2>;
   }
 
-  return (
-    <>
-      <SearchBar
-        value={searchTerm}
-        onChange={setSearchTerm}
-      />
+return (
+  <div className="app">
+    <div className="container">
+      <h1 className="title">ShopSphere</h1>
+      <p className="subtitle">
+        Discover amazing products with smart search & filtering
+      </p>
 
-      <CategoryFilter
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onChange={setSelectedCategory}
-      />
+      <div className="controls">
+        <SearchBar
+          value={searchTerm}
+          onChange={setSearchTerm}
+        />
+
+        <CategoryFilter
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onChange={setSelectedCategory}
+        />
+      </div>
 
       {filteredProducts.length === 0 ? (
-        <h2>No results found</h2>
+        <h2 className="empty-state">
+          No results found
+        </h2>
       ) : (
         <div className="products-grid">
           {filteredProducts.map((product) => (
@@ -83,8 +93,9 @@ function App() {
           ))}
         </div>
       )}
-    </>
-  );
+    </div>
+  </div>
+);
 }
 
 export default App;

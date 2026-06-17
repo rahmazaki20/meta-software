@@ -5,6 +5,7 @@ function CategoryFilter({
 }) {
   return (
     <select
+      className="category-select"
       value={selectedCategory}
       onChange={(e) => onChange(e.target.value)}
     >
